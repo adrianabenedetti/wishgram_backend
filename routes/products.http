@@ -1,0 +1,15 @@
+GET http://localhost:5050/products
+
+########
+
+POST http://localhost:5050/products/new HTTP/1.1
+content-type: application/json
+
+{
+    "title" : "Prodotto n. 1",
+    "img" : "https://picsum.photos/1920/1080",
+    "description" : "Lorem ipsum dolor sit amet, consectetur...",
+    "list" : "Lista n. 1"
+}
+
+#######
