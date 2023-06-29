@@ -1,12 +1,18 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import usersRoute from "./routes/users.js";
+import productsRoute from "./routes/products.js"
 
 dotenv.config();
 
 const PORT = 5050;
 
 const server = express();
+
+server.use(express.json());
+server.use("/", usersRoute);
+server.use("/", productsRoute);
 
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
