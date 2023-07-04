@@ -6,10 +6,24 @@ POST http://localhost:5050/products/new HTTP/1.1
 content-type: application/json
 
 {
-    "title" : "Prodotto n. 1",
+    "title" : "Prodotto n. 2",
     "img" : "https://picsum.photos/1920/1080",
     "description" : "Lorem ipsum dolor sit amet, consectetur...",
     "list" : "Lista n. 1"
 }
 
 #######
+
+PATCH http://localhost:5050/products/64a4668263e5db39a0724d10 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title" : "Prodotto n. 3",
+    "img": "https://picsum.photos/1920/1080",
+    "description" : "Lorem ipsum dolor sit amet, consectetur...",
+    "list" : "Lista n. 1"
+}
+
+#######
+
+DELETE http://localhost:5050/products/delete/64a4668263e5db39a0724d10 HTTP/1.1

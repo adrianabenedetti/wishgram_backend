@@ -33,4 +33,16 @@ router.post("/users/new", async (req, res) => {
     }
 })
 
+router.delete("/users/delete/:id", async (req,res) => {
+    const {id} = req.params;
+    try {
+        const userExist = await UserModel.findByIdAndDelete(id);
+        if(!userExist){
+            return res.status(404).send("Utente non trovato");
+        } 
+        res.status(200).send(`Utente con id ${id} rimosso dal Database`)
+    } catch (error) {
+        res.status(500).send("Errore interno del server")
+    }
+})
 export default router;
