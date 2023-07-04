@@ -46,9 +46,9 @@ router.patch("/products/:id", async (req, res) => {
       options
     );
     res.status(200).send({
-      message: "Post modificato con successo",
+      message: "Prodotto modificato con successo",
       statusCode: 200,
-      result,
+      result
     });
   } catch (error) {
     res.status(500).send("Errore interno del server");
