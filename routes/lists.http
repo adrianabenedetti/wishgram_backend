@@ -1,0 +1,24 @@
+GET http://localhost:5050/lists HTTP/1.1
+Content-Type: application/json
+
+######
+
+POST http://localhost:5050/lists/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Lista n.2"
+}
+
+######
+
+PATCH http://localhost:5050/lists/64a47499948577417695a823 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Lista n.3"
+}
+
+######
+
+DELETE http://localhost:5050/lists/delete/64a47499948577417695a823  HTTP/1.1
