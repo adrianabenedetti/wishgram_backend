@@ -11,7 +11,8 @@ const ProductSchema = new mongoose.Schema({
         type: String
     },
     list: {
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "List"
     }
 });
  

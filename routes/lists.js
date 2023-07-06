@@ -15,9 +15,27 @@ router.get("/lists", async (req,res) => {
     }
 })
 
-router.post("/lists/new", async (req, res) => {
+router.get("/lists/:userId", async (req,res) => {
+    const { userId } = req.params;
+    try {
+        const lists = await ListModel.find({
+            user: userId 
+        })
+        res.status(200).send({
+            message: "Operazione seguita con successo",
+            lists
+        })
+    } catch (error) {
+        res.status(500).send("Errore interno del server")
+    }
+})
+
+
+router.post("/lists/new/:userId", async (req, res) => {
+  const { userId } = req.params;
   const list = new ListModel({
     name: req.body.name,
+    user: userId
   });
   try {
     const newList = await list.save();

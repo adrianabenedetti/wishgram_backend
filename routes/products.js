@@ -14,12 +14,27 @@ router.get("/products", async (req, res) => {
     }
 })
 
-router.post("/products/new", async (req, res) => {
+router.get("/products/:listId", async (req, res) => {
+  const {listId} = req.params;
+  try {
+      const products = await ProductModel.find({
+        List: listId
+      })
+      res.status(200).send({
+          message:"Operazione eseguita con successo",
+          products})
+      } catch (error) { 
+          res.status(500).send("Errore interno del server")      
+  }
+})
+
+router.post("/products/new/:listId", async (req, res) => {
+  const {listId} = req.params;
     const product = new ProductModel({
         title: req.body.title,
         img: req.body.img,
         description: req.body.description,
-        list: req.body.list
+        list: listId
     })
     try {
       const newProduct = await product.save();

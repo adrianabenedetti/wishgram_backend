@@ -17,12 +17,18 @@ const UsersSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
+        lowercase: true
     },
     password: {
         type: String,
         require: true,
         max: 30
-    }
+    },
+    lists: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "List"
+    }]
 }, {timeStamps: true, strict:true});
 
 const UserModel = mongoose.model("User", UsersSchema, "users");

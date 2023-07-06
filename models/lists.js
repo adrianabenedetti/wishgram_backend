@@ -1,10 +1,19 @@
 import mongoose from "mongoose";
 
 const ListSchema = new mongoose.Schema({
-    Name: {
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    name: {
         type: String
-    }
-}, {timeStamps: true, strict:true});
+    },
+    products: [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Products"
+}]
+
+}, {timeStamps: true, strict: true});
 
 const ListModel = mongoose.model("List", ListSchema, "lists");
 
