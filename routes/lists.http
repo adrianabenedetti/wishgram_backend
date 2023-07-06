@@ -3,11 +3,16 @@ Content-Type: application/json
 
 ######
 
-POST http://localhost:5050/lists/new HTTP/1.1
+GET http://localhost:5050/lists/649df60123a29c0d08415a10 HTTP/1.1
+Content-Type: application/json
+
+##########
+
+POST http://localhost:5050/lists/new/649df60123a29c0d08415a10 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Lista n.2"
+    "name":"lista 6"
 }
 
 ######
