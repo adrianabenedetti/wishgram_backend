@@ -1,0 +1,8 @@
+POST http://localhost:5050/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "userName" : "Adria",
+    "email" : "sauropodi@gmail.com",
+    "password" : "Helloworld123!"
+}
