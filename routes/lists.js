@@ -1,5 +1,7 @@
 import express from "express";
 import ListModel from "../models/lists.js";
+import { validationResult } from 'express-validator';
+import { validateList } from '../middlewares/validators/validateList.js';
 
 const router = express.Router();
 
@@ -31,11 +33,19 @@ router.get("/lists/:userId", async (req,res) => {
 })
 
 
-router.post("/lists/new/:userId", async (req, res) => {
+router.post("/lists/new/:userId", validateList, async (req, res) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()) {
+    return res.status(400).send({
+        message: 'body validation failed',
+        errors: errors.array(),
+        statusCode: 400
+    });
+  }  
   const { userId } = req.params;
   const list = new ListModel({
-    name: req.body.name,
-    user: userId
+    title: req.body.titlee,
+    user: userId,
   });
   try {
     const newList = await list.save();
@@ -45,7 +55,7 @@ router.post("/lists/new/:userId", async (req, res) => {
   }
 });
 
-router.patch("/lists/:id", async (req, res) => {
+router.patch("/lists/:id", validateList, async (req, res) => {
     const {id} = req.params;
     const listExist = await ListModel.findById(id);
     if (!listExist) {

@@ -5,8 +5,9 @@ const ListSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    name: {
-        type: String
+    title: {
+        type: String,
+        required: true
     },
     products: [{
         type : mongoose.Schema.Types.ObjectId,

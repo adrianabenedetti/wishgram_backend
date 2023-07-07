@@ -10,7 +10,7 @@ content-type: application/json
     "lastName" : "Benedetti",
     "userName" : "Adrianab",
     "email" : "adrianab@email.com",
-    "password" : "helloworld123"
+    "password" : "Helloworld123!"
 }
 
 ########

@@ -9,7 +9,8 @@ content-type: application/json
 {
     "title" : "Prodotto n. 1",
     "img" : "https://picsum.photos/1920/1080",
-    "description" : "prova"
+    "description" : "prova",
+    "price" : "45"
 }
 
 ########
@@ -21,6 +22,7 @@ Content-Type: application/json
     "title" : "Prodotto n. 3",
     "img": "https://picsum.photos/1920/1080",
     "description" : "Lorem ipsum dolor sit amet, consectetur...",
+    "price" : "45",
     "list" : "Lista n. 1"
 }
 
