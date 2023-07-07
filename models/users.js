@@ -13,12 +13,12 @@ const UsersSchema = new mongoose.Schema({
         type: String,
         required: true,
         max: 30,
-        unique: true
+        unique: [true, 'Username already in use']
     },
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: [true, 'email already registered'],
         lowercase: true
     },
     password: {

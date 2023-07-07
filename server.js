@@ -2,8 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import usersRoute from "./routes/users.js";
-import productsRoute from "./routes/products.js"
-import listsRoute from "./routes/lists.js"
+import productsRoute from "./routes/products.js";
+import listsRoute from "./routes/lists.js";
+import login from "./routes/login.js";
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ server.use(express.json());
 server.use("/", usersRoute);
 server.use("/", productsRoute);
 server.use("/", listsRoute)
+server.use("/", login)
+
 
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
