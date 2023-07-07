@@ -1,5 +1,8 @@
 import express from "express";
 import UserModel from "../models/users.js";
+import { validationResult } from "express-validator";
+import { usersValidation } from "../middlewares/validators/validateUsers.js"
+import { validatePassword } from "../middlewares/validators/validatePassword.js"
 
 
 const router = express.Router();
@@ -22,7 +25,15 @@ router.get("/users", async (req, res) => {
     }
 })
 
-router.post("/users/new", async (req, res) => {
+router.post("/users/new", [usersValidation, validatePassword], async (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(400).send({
+            message: 'body validation failed',
+            errors: errors.array(),
+            statusCode: 400
+        });
+    }
     const user = new UserModel({
         firstName: req.body.firstName,
         lastName: req.body.lastName,

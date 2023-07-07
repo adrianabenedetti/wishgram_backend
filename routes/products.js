@@ -1,5 +1,7 @@
 import express from "express";
 import ProductModel from "../models/products.js";
+import {validationResult} from 'express-validator';
+import { validateProduct } from '../middlewares/validators/validateProduct.js'
 
 const router = express.Router();
 
@@ -28,12 +30,21 @@ router.get("/products/:listId", async (req, res) => {
   }
 })
 
-router.post("/products/new/:listId", async (req, res) => {
+router.post("/products/new/:listId", validateProduct, async (req, res) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()) {
+    return res.status(400).send({
+      message: 'body validation failed',
+      errors: errors.array(),
+      statusCode: 400
+    });
+  }
   const {listId} = req.params;
     const product = new ProductModel({
         title: req.body.title,
         img: req.body.img,
         description: req.body.description,
+        price: req.body.price,
         list: listId
     })
     try {
@@ -44,7 +55,7 @@ router.post("/products/new/:listId", async (req, res) => {
     }
 })
 
-router.patch("/products/:id", async (req, res) => {
+router.patch("/products/:id", validateProduct, async (req, res) => {
   const { id } = req.params;
   const productExist = await ProductModel.findById(id);
   if (!productExist) {
