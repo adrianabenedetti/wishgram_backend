@@ -3,12 +3,13 @@ Content-Type: application/json
 
 ######
 
-GET http://localhost:5050/lists/649df60123a29c0d08415a10 HTTP/1.1
+GET http://localhost:5050/lists/64ac8b5b99161edf18d710f1 HTTP/1.1
 Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdXJvcG9kaUBnbWFpbC5jb20iLCJpYXQiOjE2ODkwMzIyNzMsImV4cCI6MTY4OTExODY3M30.-eDKLMAQlCr345n8cbGjJTHbCFyZegHrAF1QwViUQFM
 
 ##########
 
-POST http://localhost:5050/lists/new/649df60123a29c0d08415a10 HTTP/1.1
+POST http://localhost:5050/lists/new/64ac8b5b99161edf18d710f1 HTTP/1.1
 Content-Type: application/json
 
 {

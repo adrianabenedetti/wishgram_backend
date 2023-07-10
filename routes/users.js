@@ -6,6 +6,7 @@ import { validatePassword } from "../middlewares/validators/validatePassword.js"
 import bcrypt, { genSalt } from "bcrypt";
 
 
+
 const router = express.Router();
 
 router.get("/users", async (req, res) => {

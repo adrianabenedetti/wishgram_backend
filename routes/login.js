@@ -24,13 +24,15 @@ login.post("/login", async (req, res) => {
             message: "Wrong credentials",
             statusCode: 400
         })
-        } else { //da cambiare con jwt
-            console.log("login effetuato")
-            return res.status(200).send({
-                message: "🥳",
-                statusCode: 200
-            })
-        }
-    })
+        } 
+        const accessToken = jwt.sign({
+            email:user.email
+        }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "24h"})
+        res.header('authorization', accessToken).status(200).send({
+            message: "User has successfully logged in",
+            statusCode:200,
+            accessToken
+        } );
+    });
 
     export default login;

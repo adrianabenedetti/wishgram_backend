@@ -1,5 +1,6 @@
 GET http://localhost:5050/users
 
+
 ###############
 
 POST http://localhost:5050/users/new HTTP/1.1
@@ -8,9 +9,9 @@ content-type: application/json
 {
     "firstName" : "Adriana",
     "lastName" : "Benedetti",
-    "userName" : "Adria",
+    "userName" : "Adriana",
     "email" : "sauropodi@gmail.com",
-    "password" : "Helloworld123!"
+    "password" : "Hello123!"
 }
 
 ########

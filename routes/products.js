@@ -1,7 +1,9 @@
 import express from "express";
 import ProductModel from "../models/products.js";
 import {validationResult} from 'express-validator';
-import { validateProduct } from '../middlewares/validators/validateProduct.js'
+import { validateProduct } from '../middlewares/validators/validateProduct.js';
+import authToken from "../middlewares/token/authToken.js";
+
 
 const router = express.Router();
 
@@ -16,11 +18,11 @@ router.get("/products", async (req, res) => {
     }
 })
 
-router.get("/products/:listId", async (req, res) => {
+router.get("/products/:listId", authToken, async (req, res) => {
   const {listId} = req.params;
   try {
       const products = await ProductModel.find({
-        List: listId
+        list: listId
       })
       res.status(200).send({
           message:"Operazione eseguita con successo",

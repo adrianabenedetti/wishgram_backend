@@ -2,8 +2,13 @@ GET http://localhost:5050/products
 
 ########
 
+GET http://localhost:5050/products/64ac8bf15c6c25646900f5e1  HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdXJvcG9kaUBnbWFpbC5jb20iLCJpYXQiOjE2ODkwMjk0OTksImV4cCI6MTY4OTExNTg5OX0.bSgFKgRKSNkKX6sUV6PHLnKm_YUUyuycslhsijs7WSU
 
-POST http://localhost:5050/products/new/64a487f55ca502df0b4916e6 HTTP/1.1
+#######
+
+POST http://localhost:5050/products/new/64ac8bf15c6c25646900f5e1 HTTP/1.1
 content-type: application/json
 
 {

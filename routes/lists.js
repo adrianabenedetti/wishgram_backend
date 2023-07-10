@@ -2,6 +2,7 @@ import express from "express";
 import ListModel from "../models/lists.js";
 import { validationResult } from 'express-validator';
 import { validateList } from '../middlewares/validators/validateList.js';
+import authToken from "../middlewares/token/authToken.js";
 
 const router = express.Router();
 
@@ -17,7 +18,7 @@ router.get("/lists", async (req,res) => {
     }
 })
 
-router.get("/lists/:userId", async (req,res) => {
+router.get("/lists/:userId", authToken, async (req,res) => {
     const { userId } = req.params;
     try {
         const lists = await ListModel.find({
@@ -44,7 +45,7 @@ router.post("/lists/new/:userId", validateList, async (req, res) => {
   }  
   const { userId } = req.params;
   const list = new ListModel({
-    title: req.body.titlee,
+    title: req.body.title,
     user: userId,
   });
   try {
