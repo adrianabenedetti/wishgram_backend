@@ -43,10 +43,9 @@ router.post("/products/new/:listId", validateProduct, async (req, res) => {
   }
   const {listId} = req.params;
     const product = new ProductModel({
-        title: req.body.title,
+        url: req.body.url,
         img: req.body.img,
-        description: req.body.description,
-        price: req.body.price,
+        title: req.body.title,
         list: listId
     })
     try {
@@ -56,6 +55,8 @@ router.post("/products/new/:listId", validateProduct, async (req, res) => {
         res.status(500).send("Errore interno del server")
     }
 })
+
+
 
 router.patch("/products/:id", validateProduct, async (req, res) => {
   const { id } = req.params;

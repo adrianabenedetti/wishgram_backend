@@ -8,14 +8,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdXJvcG9kaUBn
 
 #######
 
-POST http://localhost:5050/products/new/64ac8bf15c6c25646900f5e1 HTTP/1.1
+POST http://localhost:5050/products/new/64b19d687d42262081808cc8 HTTP/1.1
 content-type: application/json
 
 {
-    "title" : "Prodotto n. 1",
-    "img" : "https://picsum.photos/1920/1080",
-    "description" : "prova",
-    "price" : "45"
+    "url" : "Prodotto n. 1",
+    "img" : "imgkfkf",
+    "title" : "matto"
 }
 
 ########
