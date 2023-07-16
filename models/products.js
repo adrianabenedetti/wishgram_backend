@@ -6,10 +6,12 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     img: {
-        type: String
+        type: String,
+        required: false
     },
     title: {
-        type: String
+        type: String,
+        required: false
     },
     list: {
         type: mongoose.Schema.Types.ObjectId,

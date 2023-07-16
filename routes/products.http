@@ -8,27 +8,19 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdXJvcG9kaUBn
 
 #######
 
-POST http://localhost:5050/products/new/64b19d687d42262081808cc8 HTTP/1.1
+POST http://localhost:5050/products/new/64b19d787d42262081808ccc HTTP/1.1
 content-type: application/json
 
 {
-    "url" : "Prodotto n. 1",
-    "img" : "imgkfkf",
-    "title" : "matto"
+    "url" : "https://www.sephora.it/p/hella-thicc-volumizing-mascara---mascara-volumizzante-661679.html",
+    "img": "",
+    "title": ""
 }
 
 ########
 
-PATCH http://localhost:5050/products/64a4668263e5db39a0724d10 HTTP/1.1
+GET http://localhost:5050/products/scraping/64b2eec5b6c61302f4f86e6f HTTP/1.1
 Content-Type: application/json
-
-{
-    "title" : "Prodotto n. 3",
-    "img": "https://picsum.photos/1920/1080",
-    "description" : "Lorem ipsum dolor sit amet, consectetur...",
-    "price" : "45",
-    "list" : "Lista n. 1"
-}
 
 #######
 
