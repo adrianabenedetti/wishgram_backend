@@ -18,14 +18,38 @@ router.get("/lists", async (req,res) => {
     }
 })
 
-router.get("/lists/:userId", authToken, async (req,res) => {
+router.get("/lists/:id", async (req,res) => {
+    const {id} = req.params;
+    try {
+        const lists = await ListModel.findById(id)
+        .populate('products');
+        res.status(200).send({
+            message: "Operazione seguita con successo",
+            lists
+        })
+    } catch (error) {
+        res.status(500).send("Errore interno del server")
+    }
+})
+
+router.get("/lists/byUserId/:userId", async (req,res) => {
     const { userId } = req.params;
+    const { page = 1, pageSize = 10} = req.query;
     try {
         const lists = await ListModel.find({
             user: userId 
         })
+        .limit(pageSize)
+        .skip((page - 1) * pageSize)
+        .populate('products')
+
+        const resCount = await ListModel.count();
         res.status(200).send({
+            count: resCount,
+            currentPage: Number(page),
+            totalPages: Math.ceil(resCount / Number(pageSize)),
             message: "Operazione seguita con successo",
+            statusCode: 200,
             lists
         })
     } catch (error) {
