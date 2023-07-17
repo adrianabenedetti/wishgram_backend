@@ -2,17 +2,17 @@ GET http://localhost:5050/products
 
 ########
 
-GET http://localhost:5050/products/64ac8bf15c6c25646900f5e1  HTTP/1.1
+GET http://localhost:5050/products/  HTTP/1.1
 content-type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdXJvcG9kaUBnbWFpbC5jb20iLCJpYXQiOjE2ODkwMjk0OTksImV4cCI6MTY4OTExNTg5OX0.bSgFKgRKSNkKX6sUV6PHLnKm_YUUyuycslhsijs7WSU
 
 #######
 
-POST http://localhost:5050/products/new/64b19d787d42262081808ccc HTTP/1.1
+POST http://localhost:5050/products/new/64b19d687d42262081808cc8 HTTP/1.1
 content-type: application/json
 
 {
-    "url" : "https://www.sephora.it/p/hella-thicc-volumizing-mascara---mascara-volumizzante-661679.html",
+    "url" : "https://www.mediaworld.it/it/product/_beats-studio-buds-transparent-transparent-189963.html",
     "img": "",
     "title": ""
 }

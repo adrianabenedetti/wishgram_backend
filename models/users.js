@@ -26,6 +26,11 @@ const UsersSchema = new mongoose.Schema({
         require: true,
         max: 30
     },
+    confirmPassword: {
+        type: String,
+        require: true,
+        max: 30
+    },
     lists: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "List"

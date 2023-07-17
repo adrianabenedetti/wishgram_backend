@@ -5,6 +5,8 @@ import { validateProduct } from '../middlewares/validators/validateProduct.js';
 import authToken from "../middlewares/token/authToken.js";
 import * as cheerio from 'cheerio';
 import axios from 'axios';
+import jwt from 'jsonwebtoken'
+import ListModel from "../models/lists.js";
 
 
 const router = express.Router();
@@ -52,6 +54,13 @@ router.post("/products/new/:listId", validateProduct, async (req, res) => {
     })
     try {
       const newProduct = await product.save();
+      const updateDocument = {
+        $push: {'products': newProduct._id}
+      }
+      const option = {
+        new:true
+      } 
+      await ListModel.findByIdAndUpdate(listId, updateDocument, option)
       res.status(200).send("Prodotto salvato con successo")  
     } catch (error) {
         res.status(500).send("Errore interno del server")
@@ -74,9 +83,14 @@ router.get("/products/scraping/:id", async (req, res) => {
             const html = response.data
             const $ = cheerio.load(html)
             const articles = []
+            const word = "http"
 
             $('div').each(function () { //<-- cannot be a function expression
                 const url = $(this).find('img').attr('src')
+                // if(!url.toLowerCase().includes(word)){
+                  for(word in url){
+
+                  }
                 articles.push({
                     url
                 })
