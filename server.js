@@ -5,6 +5,7 @@ import usersRoute from "./routes/users.js";
 import productsRoute from "./routes/products.js";
 import listsRoute from "./routes/lists.js";
 import login from "./routes/login.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const PORT = 5050;
 const server = express();
 
 server.use(express.json());
+server.use(cors())
 server.use("/", usersRoute);
 server.use("/", productsRoute);
 server.use("/", listsRoute)

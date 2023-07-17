@@ -9,11 +9,11 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdXJvcG9kaUBn
 
 ##########
 
-POST http://localhost:5050/lists/new/64ac8b5b99161edf18d710f1 HTTP/1.1
+POST http://localhost:5050/lists/new/64b080a0c100cf2aaac25aeb HTTP/1.1
 Content-Type: application/json
 
 {
-    "title":"lista 9"
+    "title":"lista 3"
 }
 
 ######
