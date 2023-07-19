@@ -74,9 +74,9 @@ router.post("/lists/new/:userId", validateList, async (req, res) => {
   });
   try {
     const newList = await list.save();
-    res.status(200).send("Lista creata con successo");
+    res.status(200).send({message: "Lista creata con successo", statusCode:200});
   } catch (error) {
-    res.status(500).send("Errore interno del server");
+    res.status(500).send({message:"Errore interno del server", statusCode:500});
   }
 });
 
@@ -109,11 +109,11 @@ router.delete("/lists/delete/:id", async (req,res) => {
     try {
         const listExist = await ListModel.findByIdAndDelete(id);
         if(!listExist){
-            return res.status(404).send("Lista non trovata");
+            return res.status(404).send({message:"Lista non trovata", statusCode: 404});
         }
-        res.status(200).send(`Lista con id ${id} rimossa dal Database`)
+        res.status(200).send({message:`Lista con id ${id} rimossa dal Database`, statusCode: 200})
     } catch (error) {
-        res.status(500).send("Errore interno del server")
+        res.status(500).send({message:"Errore interno del server", statusCode: 500})
     }
 });
 

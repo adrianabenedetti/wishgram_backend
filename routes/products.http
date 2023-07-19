@@ -12,14 +12,14 @@ POST http://localhost:5050/products/new/64b19d687d42262081808cc8 HTTP/1.1
 content-type: application/json
 
 {
-    "url" : "https://www.mediaworld.it/it/product/_beats-studio-buds-transparent-transparent-189963.html",
+    "url" : "https://www.sephora.it/p/eaze-drop---fondotinta-opacizzante-P10014798.html",
     "img": "",
     "title": ""
 }
 
 ########
 
-GET http://localhost:5050/products/scraping/64b2eec5b6c61302f4f86e6f HTTP/1.1
+GET http://localhost:5050/products/scraping/64b6b5ad85bdb3d30d7ddc27 HTTP/1.1
 Content-Type: application/json
 
 #######

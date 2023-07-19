@@ -26,4 +26,4 @@ Content-Type: application/json
 
 ######
 
-DELETE http://localhost:5050/lists/delete/64a47499948577417695a823  HTTP/1.1
+DELETE http://localhost:5050/lists/delete/64b728835577087334c31b7f  HTTP/1.1
