@@ -129,7 +129,7 @@ router.get("/products/scraping/:id", async (req, res) => {
   }
 });
 
-/* router.patch("/products/:id", validateProduct, async (req, res) => {
+router.patch("/products/:id", validateProduct, async (req, res) => {
   const { id } = req.params;
   const productExist = await ProductModel.findById(id);
   if (!productExist) {
@@ -153,18 +153,18 @@ router.get("/products/scraping/:id", async (req, res) => {
   } catch (error) {
     res.status(500).send("Errore interno del server");
   }
-}); */
+});
 
 router.delete("/products/delete/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const productExist = await ProductModel.findByIdAndDelete(id);
     if (!productExist) {
-      return res.status(404).send("Prodotto non trovato");
+      return res.status(404).send({message:"Prodotto non trovato", statusCode: 404});
     }
-    res.status(200).send(`Post con id ${id} rimosso dal Database`);
+    res.status(200).send({message:`Post con id ${id} rimosso dal Database`, statusCode: 200});
   } catch (error) {
-    res.status(500).send("Errore interno del server");
+    res.status(500).send({message: "Errore interno del server", statusCode:500});
   }
 });
 

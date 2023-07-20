@@ -27,6 +27,7 @@ login.post("/login", async (req, res) => {
         } 
         const accessToken = jwt.sign({
             email:user.email,
+            userName:user.userName,
             id: user._id,
         }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "24h"})
         res.header('authorization', accessToken).status(200).send({
