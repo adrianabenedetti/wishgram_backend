@@ -12,16 +12,25 @@ POST http://localhost:5050/products/new/64b19d687d42262081808cc8 HTTP/1.1
 content-type: application/json
 
 {
-    "url" : "https://www.mediaworld.it/it/product/_beats-studio-buds-transparent-transparent-189963.html",
+    "url" : "https://www.stradivarius.com/it/cappello-denim-l00680403?style=06&colorId=701&categoryId=1020178547",
     "img": "",
     "title": ""
 }
 
 ########
 
-GET http://localhost:5050/products/scraping/64b2eec5b6c61302f4f86e6f HTTP/1.1
+GET http://localhost:5050/products/scraping/64b6b5ad85bdb3d30d7ddc27 HTTP/1.1
 Content-Type: application/json
 
 #######
 
+PATCH http://localhost:5050/products/64b88d4b1f1ea8df7f52962d HTTP/1.1
+Content-Type: application/json
+
+{
+    "url":"https://www.zalando.it/maxandco-cross-gonna-lunga-old-rose-mq921b05c-j11.html",
+    "img":"...."
+
+}
+#####
 DELETE http://localhost:5050/products/delete/64a4668263e5db39a0724d10 HTTP/1.1
